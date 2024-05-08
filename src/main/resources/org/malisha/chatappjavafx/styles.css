@@ -1,0 +1,17 @@
+.bubble {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.bubble-sent {
+    -fx-background-color: #3498db;
+    -fx-text-fill: #ffffff;
+}
+
+.bubble-received {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #ffffff;
+}

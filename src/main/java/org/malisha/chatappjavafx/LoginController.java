@@ -10,6 +10,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+
 public class LoginController {
     @FXML
     private TextField usernameField;
@@ -31,6 +33,7 @@ public class LoginController {
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             Scene scene = new Scene(root, 640, 480);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
             stage.setMinWidth(640);
             stage.setMinHeight(480);
             stage.setTitle("Chat App");

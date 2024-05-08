@@ -46,11 +46,13 @@ public class HelloController implements Initializable {
 
             Text text = new Text(messageToSend);
             TextFlow textFlow = new TextFlow(text);
+            textFlow.getStyleClass().addAll("bubble", "bubble-sent");
 
             hbox.getChildren().add(textFlow);
             messagesBox.getChildren().add(hbox);
 
             client.sendMessage(messageToSend);
+            typedMessage.clear();
         }
     }
 
@@ -80,6 +82,7 @@ public class HelloController implements Initializable {
 
             Text text = new Text(message);
             TextFlow textFlow = new TextFlow(text);
+            textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
             hbox.getChildren().add(textFlow);
             messagesBox.getChildren().add(hbox);

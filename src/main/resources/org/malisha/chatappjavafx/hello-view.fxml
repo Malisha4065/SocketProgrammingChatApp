@@ -33,7 +33,7 @@
         </content>
       </ScrollPane>
         <HBox alignment="CENTER_RIGHT">
-          <TextField fx:id="typedMessage" maxWidth="200" >Enter message</TextField>
+          <TextField fx:id="typedMessage" maxWidth="200" promptText="Enter Message"/>
           <Button text="Send" onAction="#onHelloButtonClick"/>
         </HBox>
       </VBox>
