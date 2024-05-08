@@ -27,15 +27,13 @@
 
     <right>
       <VBox>
-      <ScrollPane prefHeight="300" minHeight="200">
+      <ScrollPane fx:id="mainScrollPane" prefHeight="300" minHeight="200" fitToWidth="true">
         <content>
-          <VBox>
-            <TextArea>fjfjfj</TextArea>
-          </VBox>
+          <VBox fx:id="messagesBox" prefHeight="200" prefWidth="250"/>
         </content>
       </ScrollPane>
         <HBox alignment="CENTER_RIGHT">
-          <TextField maxWidth="200" >Enter message</TextField>
+          <TextField fx:id="typedMessage" maxWidth="200" >Enter message</TextField>
           <Button text="Send" onAction="#onHelloButtonClick"/>
         </HBox>
       </VBox>
