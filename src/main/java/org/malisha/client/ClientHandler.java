@@ -70,13 +70,50 @@ public class ClientHandler implements Runnable {
     }
 
     public void broadcastMessage(String message) {
+        if (message.startsWith("@")) {
+            // Direct message format: "@username message"
+            String[] parts = message.split(" ", 2);
+            String recipientUsername = parts[0].substring(1); // Extract username
+            String directMessage = parts[1];
+
+            sendDirectMessage(recipientUsername, directMessage);
+        } else {
+            for (ClientHandler clientHandler : clientHandlers) {
+                try {
+                    if (!clientHandler.clientUsername.equals(clientUsername)) {
+                        clientHandler.bufferedWriter.write(clientUsername + ": " + message);
+                        clientHandler.bufferedWriter.newLine();
+                        clientHandler.bufferedWriter.flush();
+                    }
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
+                }
+            }
+        }
+    }
+
+    private void sendDirectMessage(String recipientUsername, String message) {
+        boolean sent = false;
+        System.out.println("tada");
         for (ClientHandler clientHandler : clientHandlers) {
-            try {
-                if (!clientHandler.clientUsername.equals(clientUsername)) {
-                    clientHandler.bufferedWriter.write(clientUsername + ": " + message);
+            if (clientHandler.clientUsername.equals(recipientUsername)) {
+                try {
+                    clientHandler.bufferedWriter.write("(Private) " + clientUsername + ": " + message);
                     clientHandler.bufferedWriter.newLine();
                     clientHandler.bufferedWriter.flush();
+                    sent = true;
+                    break;
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
                 }
+            }
+        }
+        if (!sent) {
+            // Notify sender that recipient is not available
+            try {
+                bufferedWriter.write("SERVER: User '" + recipientUsername + "' is not available.");
+                bufferedWriter.newLine();
+                bufferedWriter.flush();
             } catch (IOException e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
             }
