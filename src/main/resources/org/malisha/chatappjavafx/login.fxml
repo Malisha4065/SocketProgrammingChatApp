@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.malisha.chatappjavafx.LoginController">
+    <padding>
+        <Insets top="50.0"/>
+    </padding>
+    <Label text="Welcome! Please enter your username:"/>
+    <TextField fx:id="usernameField" promptText="Username"/>
+    <Button text="Enter Chat" onAction="#enterChat"/>
+</VBox>

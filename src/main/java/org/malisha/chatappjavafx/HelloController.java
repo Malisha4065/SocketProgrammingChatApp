@@ -32,6 +32,11 @@ public class HelloController implements Initializable {
 
     private Client client;
 
+    public void initData(String username) {
+        welcomeText.setText("Welcome, " + username + "!");
+        client.sendMessage(username);
+    }
+
     @FXML
     protected void onHelloButtonClick() {
         String messageToSend = typedMessage.getText();
