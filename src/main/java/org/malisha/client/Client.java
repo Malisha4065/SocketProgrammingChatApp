@@ -1,8 +1,9 @@
-package org.example.client;
+package org.malisha.client;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.*;
 
 public class Client {
     private Socket socket;
@@ -16,14 +17,13 @@ public class Client {
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.username = username;
-        }
-        catch (IOException e) {
-             closeEverything(socket, bufferedReader, bufferedWriter);
+        } catch (IOException e) {
+            closeEverything(socket, bufferedReader, bufferedWriter);
         }
     }
 
     public void sendMessage() {
-        try{
+        try {
             bufferedWriter.write(username);
             bufferedWriter.newLine();
             bufferedWriter.flush();
@@ -35,8 +35,7 @@ public class Client {
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
     }
@@ -47,12 +46,11 @@ public class Client {
             public void run() {
                 String msgFromGroupChat;
 
-                while(socket.isConnected()) {
+                while (socket.isConnected()) {
                     try {
                         msgFromGroupChat = bufferedReader.readLine();
                         System.out.println(msgFromGroupChat);
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         closeEverything(socket, bufferedReader, bufferedWriter);
                     }
                 }
@@ -71,8 +69,7 @@ public class Client {
             if (socket != null) {
                 socket.close();
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

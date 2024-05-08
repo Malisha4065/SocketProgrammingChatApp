@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd3c4309-221c-46e2-a949-cbf1e200c372" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/client/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Client.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Server.executor": "Run",
     "Maven.SocketProgrammingChatApp [clean].executor": "Run",
@@ -44,16 +49,19 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.client.Client" />
+      <option name="MAIN_CLASS_NAME" value="org.malisha.client.Client" />
       <module name="SocketProgrammingChatApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.client.*" />
+          <option name="PATTERN" value="org.malisha.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,11 +70,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <option name="MAIN_CLASS_NAME" value="org.malisha.Main" />
       <module name="SocketProgrammingChatApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.malisha.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -75,11 +83,11 @@
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.server.Server" />
+      <option name="MAIN_CLASS_NAME" value="org.malisha.server.Server" />
       <module name="SocketProgrammingChatApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.server.*" />
+          <option name="PATTERN" value="org.malisha.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,8 +102,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>

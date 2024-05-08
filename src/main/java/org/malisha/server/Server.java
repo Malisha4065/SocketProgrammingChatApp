@@ -1,6 +1,6 @@
-package org.example.server;
+package org.malisha.server;
 
-import org.example.client.ClientHandler;
+import org.malisha.client.ClientHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -26,7 +26,7 @@ public class Server {
             }
         }
         catch(IOException e) {
-
+            e.printStackTrace();
         }
     }
 
