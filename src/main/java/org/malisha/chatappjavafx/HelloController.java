@@ -6,10 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -30,12 +27,16 @@ public class HelloController implements Initializable {
     private TextField typedMessage;
     @FXML
     private Label welcomeText;
+    @FXML
+    private Button groupChatButton;
 
     private Client client;
+    private String myUsername = "";
 
     public void initData(String username) {
         welcomeText.setText("Welcome, " + username + "!");
         client.sendMessage(username);
+        myUsername = username;
     }
 
     @FXML
@@ -72,7 +73,8 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            client = new Client(new Socket("localhost", 1234), "Malishaya");
+            System.out.println(myUsername);
+            client = new Client(new Socket("localhost", 1234));
             client.listenForMessage(this::addMessageToBox);
             System.out.println("Connected to the server.");
         } catch (IOException e) {
@@ -87,6 +89,7 @@ public class HelloController implements Initializable {
         });
 
         chatHistories.put("group", new ArrayList<>());
+        groupChatButton.setVisible(false);
     }
 
     private void addMessageToBox(String message) {
@@ -220,11 +223,24 @@ public class HelloController implements Initializable {
         // Example: Show private chat header
         welcomeText.setText("Private chat with " + selectedUser);
         privateChat = true;
+        groupChatButton.setVisible(true);
 
         receiver = selectedUser;
         if (!chatHistories.containsKey(receiver)) {
             chatHistories.put(receiver, new ArrayList<>());
         }
         populateChat(receiver);
+    }
+
+    @FXML
+    protected void onGroupChatButtonClick() {
+        privateChat = false;
+        receiver = "";
+
+        populateChat("group");
+        groupChatButton.setVisible(false);
+        welcomeText.setText("Welcome, " + myUsername + "!");
+
+        mainScrollPane.setVvalue(1.0);
     }
 }

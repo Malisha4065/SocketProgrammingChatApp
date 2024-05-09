@@ -23,11 +23,11 @@
       <VBox alignment="CENTER">
         <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold;">Group Chat</Label>
       </VBox>
-
     </top>
     <left>
       <VBox spacing="10">
         <ListView fx:id="userListView" prefHeight="200" prefWidth="150" onMouseClicked="#onUserClicked"/>
+        <Button fx:id="groupChatButton" onAction="#onGroupChatButtonClick" text="Group Chat" />
       </VBox>
     </left>
     <right>

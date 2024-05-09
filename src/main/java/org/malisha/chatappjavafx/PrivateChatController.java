@@ -32,7 +32,7 @@ public class PrivateChatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            client = new Client(new Socket("localhost", 1234), "Malishaya");
+            client = new Client(new Socket("localhost", 1234));
             client.listenForMessage(this::addMessageToBox);
             System.out.println("Connected to the server.");
         } catch (IOException e) {
