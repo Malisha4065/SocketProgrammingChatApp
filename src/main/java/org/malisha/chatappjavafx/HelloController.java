@@ -55,7 +55,7 @@ public class HelloController implements Initializable {
             if (!privateChat) {
                 client.sendMessage(messageToSend);
 
-                chatHistories.get("group").add(messageToSend);
+                chatHistories.get("group").add("(s)" + messageToSend);
 
             } else {
                 client.sendMessage("@" + receiver + " " + messageToSend);
@@ -63,7 +63,7 @@ public class HelloController implements Initializable {
                 if (!chatHistories.containsKey(receiver)) {
                     chatHistories.put(receiver, new ArrayList<>());
                 }
-                chatHistories.get(receiver).add(messageToSend);
+                chatHistories.get(receiver).add("(s)" + messageToSend);
             }
             typedMessage.clear();
         }
@@ -101,48 +101,73 @@ public class HelloController implements Initializable {
                     populateUserList(userList);
                 }
             } else if (message.startsWith("(Private) " + receiver + ": ") && privateChat) {
-                HBox hbox = new HBox();
-                hbox.setAlignment(Pos.CENTER_LEFT);
+                //HBox hbox = new HBox();
+                //hbox.setAlignment(Pos.CENTER_LEFT);
                 String privateHandle = "(Private) " + receiver + ": ";
                 String messageWithReceiverStripped = message.substring(privateHandle.length()).trim();
-                Text text = new Text(messageWithReceiverStripped);
+                //Text text = new Text(messageWithReceiverStripped);
 
                 if (!chatHistories.containsKey(receiver)) {
                     chatHistories.put(receiver, new ArrayList<>());
                 }
 
-                chatHistories.get(receiver).add(message);
+                chatHistories.get(receiver).add("(r)" + messageWithReceiverStripped);
+                populateChat(receiver);
 
-                TextFlow textFlow = new TextFlow(text);
-                textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                //TextFlow textFlow = new TextFlow(text);
+                //textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
-                hbox.getChildren().add(textFlow);
-                messagesBox.getChildren().add(hbox);
+                //hbox.getChildren().add(textFlow);
+                //messagesBox.getChildren().add(hbox);
 
                 mainScrollPane.setVvalue(1.0);
             } else {
                 if (!message.startsWith("(Private)") && !privateChat) {
                     // handle group chat
-                    HBox hbox = new HBox();
-                    hbox.setAlignment(Pos.CENTER_LEFT);
+                    //HBox hbox = new HBox();
+                    //hbox.setAlignment(Pos.CENTER_LEFT);
 
 
-                    chatHistories.get("group").add(message);
+                    chatHistories.get("group").add("(r)" + message);
+                    populateChat("group");
 
+                    //Text text = new Text(message);
 
-                    Text text = new Text(message);
+                    //TextFlow textFlow = new TextFlow(text);
+                    //textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
-                    TextFlow textFlow = new TextFlow(text);
-                    textFlow.getStyleClass().addAll("bubble", "bubble-received");
-
-                    hbox.getChildren().add(textFlow);
-                    messagesBox.getChildren().add(hbox);
+                    //hbox.getChildren().add(textFlow);
+                    //messagesBox.getChildren().add(hbox);
 
                     mainScrollPane.setVvalue(1.0);
                 }
 
             }
         });
+    }
+
+    private void populateChat(String key) {
+        messagesBox.getChildren().clear();
+        for (String message : chatHistories.get(key)) {
+            HBox hBox = new HBox();
+            if (message.startsWith("(r)")) {
+                message = message.substring("(r)".length()).trim();
+
+                hBox.setAlignment(Pos.CENTER_LEFT);
+                Text text = new Text(message);
+                TextFlow textFlow = new TextFlow(text);
+                textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                hBox.getChildren().add(textFlow);
+            } else {
+                message = message.substring("(s)".length()).trim();
+                hBox.setAlignment(Pos.CENTER_RIGHT);
+                Text text = new Text(message);
+                TextFlow textFlow = new TextFlow(text);
+                textFlow.getStyleClass().addAll("bubble", "bubble-sent");
+                hBox.getChildren().add(textFlow);
+            }
+            messagesBox.getChildren().add(hBox);
+        }
     }
 
     // private chat
@@ -179,11 +204,14 @@ public class HelloController implements Initializable {
 
         // Example: Clear messages box
         messagesBox.getChildren().clear();
-
         // Example: Show private chat header
         welcomeText.setText("Private chat with " + selectedUser);
         privateChat = true;
+
         receiver = selectedUser;
-        // You can implement more sophisticated UI updates or logic based on the selected user
+        if (!chatHistories.containsKey(receiver)) {
+            chatHistories.put(receiver, new ArrayList<>());
+        }
+        populateChat(receiver);
     }
 }
