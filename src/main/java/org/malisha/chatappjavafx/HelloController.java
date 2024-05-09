@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -18,6 +19,8 @@ import org.malisha.chatappjavafx.client.Client;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -77,17 +80,44 @@ public class HelloController implements Initializable {
 
     private void addMessageToBox(String message) {
         Platform.runLater(() -> {
-            HBox hbox = new HBox();
-            hbox.setAlignment(Pos.CENTER_LEFT);
+            if (message.startsWith("Active Users:")) {
+                String users = message.substring("Active Users:".length()).trim();
+                if (!users.isEmpty()) {
+                    if (users.endsWith(",")) {
+                        users = users.substring(0, users.length() - 1); // remove the trailing comma
+                    }
+                    List<String> userList = Arrays.asList(users.split(", "));
+                    populateUserList(userList);
+                }
+            } else {
+                HBox hbox = new HBox();
+                hbox.setAlignment(Pos.CENTER_LEFT);
 
-            Text text = new Text(message);
-            TextFlow textFlow = new TextFlow(text);
-            textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                Text text = new Text(message);
+                TextFlow textFlow = new TextFlow(text);
+                textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
-            hbox.getChildren().add(textFlow);
-            messagesBox.getChildren().add(hbox);
+                hbox.getChildren().add(textFlow);
+                messagesBox.getChildren().add(hbox);
 
-            mainScrollPane.setVvalue(1.0);
+                mainScrollPane.setVvalue(1.0);
+            }
         });
+    }
+
+    // private chat
+    @FXML
+    private ListView<String> userListView;
+
+    private void populateUserList(List<String> users) {
+        Platform.runLater(() -> {
+            userListView.getItems().clear();
+            userListView.getItems().addAll(users);
+        });
+    }
+
+    @FXML
+    protected void onUserClicked() {
+
     }
 }

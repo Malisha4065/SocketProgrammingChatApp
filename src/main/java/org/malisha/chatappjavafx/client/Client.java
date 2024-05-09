@@ -1,7 +1,11 @@
 package org.malisha.chatappjavafx.client;
 
+import javafx.application.Platform;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
 

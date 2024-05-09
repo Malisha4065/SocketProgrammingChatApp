@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f9b9755-c5af-4871-85dc-b88f7f08f69f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/PrivateChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/private-chat.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,28 +43,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatApp.executor": "Run",
-    "Application.HelloApplication.executor": "Debug",
-    "Application.Unnamed.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "gui",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/home/dushmin/Documents/Projects/Java/Socket_Programming/ChatAppJavaFx/src/main/java/org/malisha",
-    "last_opened_file_path": "/home/dushmin/Documents/Projects/Java/Socket_Programming/SocketProgrammingChatApp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "debugger.hotswap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gui&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/dushmin/Documents/Projects/Java/Socket_Programming/ChatAppJavaFx/src/main/java/org/malisha&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dushmin/Documents/Projects/Java/Socket_Programming/SocketProgrammingChatApp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.hotswap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ChatApp" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="org.malisha.chatappjavafx.HelloApplication" />
@@ -90,7 +91,8 @@
       <option name="presentableId" value="Default" />
       <updated>1715098070202</updated>
       <workItem from="1715098071258" duration="9649000" />
-      <workItem from="1715158970121" duration="27819000" />
+      <workItem from="1715158970121" duration="34437000" />
+      <workItem from="1715237042347" duration="9920000" />
     </task>
     <servers />
   </component>

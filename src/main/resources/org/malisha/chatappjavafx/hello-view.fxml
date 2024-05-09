@@ -12,6 +12,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.malisha.chatappjavafx.HelloController">
   <padding>
@@ -24,7 +25,11 @@
       </VBox>
 
     </top>
-
+    <left>
+      <VBox spacing="10">
+        <ListView fx:id="userListView" prefHeight="200" prefWidth="150" onMouseClicked="#onUserClicked"/>
+      </VBox>
+    </left>
     <right>
       <VBox>
       <ScrollPane fx:id="mainScrollPane" prefHeight="300" minHeight="200" fitToWidth="true">
