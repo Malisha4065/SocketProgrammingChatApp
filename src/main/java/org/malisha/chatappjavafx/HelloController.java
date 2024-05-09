@@ -54,7 +54,11 @@ public class HelloController implements Initializable {
             hbox.getChildren().add(textFlow);
             messagesBox.getChildren().add(hbox);
 
-            client.sendMessage(messageToSend);
+            if (!privateChat) {
+                client.sendMessage(messageToSend);
+            } else {
+                client.sendMessage("@" + receiver + " " + messageToSend);
+            }
             typedMessage.clear();
         }
     }
@@ -77,7 +81,6 @@ public class HelloController implements Initializable {
         });
     }
 
-
     private void addMessageToBox(String message) {
         Platform.runLater(() -> {
             if (message.startsWith("Active Users:")) {
@@ -89,11 +92,13 @@ public class HelloController implements Initializable {
                     List<String> userList = Arrays.asList(users.split(", "));
                     populateUserList(userList);
                 }
-            } else {
+            } else if (message.startsWith("(Private) " + receiver + ": ") && privateChat) {
                 HBox hbox = new HBox();
                 hbox.setAlignment(Pos.CENTER_LEFT);
+                String privateHandle = "(Private) " + receiver + ": ";
+                String messageWithReceiverStripped = message.substring(privateHandle.length()).trim();
+                Text text = new Text(messageWithReceiverStripped);
 
-                Text text = new Text(message);
                 TextFlow textFlow = new TextFlow(text);
                 textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
@@ -101,6 +106,22 @@ public class HelloController implements Initializable {
                 messagesBox.getChildren().add(hbox);
 
                 mainScrollPane.setVvalue(1.0);
+            } else {
+                if (!message.startsWith("(Private)") && !privateChat) {
+                    HBox hbox = new HBox();
+                    hbox.setAlignment(Pos.CENTER_LEFT);
+
+                    Text text = new Text(message);
+
+                    TextFlow textFlow = new TextFlow(text);
+                    textFlow.getStyleClass().addAll("bubble", "bubble-received");
+
+                    hbox.getChildren().add(textFlow);
+                    messagesBox.getChildren().add(hbox);
+
+                    mainScrollPane.setVvalue(1.0);
+                }
+
             }
         });
     }
@@ -118,6 +139,31 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onUserClicked() {
+        String selectedUser = userListView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            // Perform actions to switch to private chat mode with selectedUser
+            switchToPrivateChat(selectedUser);
+        }
+    }
 
+    private boolean privateChat = false;
+    private String receiver = "";
+
+    private void switchToPrivateChat(String selectedUser) {
+        // Implement your logic to switch to private chat mode with the selected user
+        // For example, update UI or display messages related to private chat
+        System.out.println("Switching to private chat with: " + selectedUser);
+
+        // Here you can update the UI or perform actions based on the selected user
+        // You may want to clear existing messages, update labels, etc.
+
+        // Example: Clear messages box
+        messagesBox.getChildren().clear();
+
+        // Example: Show private chat header
+        welcomeText.setText("Private chat with " + selectedUser);
+        privateChat = true;
+        receiver = selectedUser;
+        // You can implement more sophisticated UI updates or logic based on the selected user
     }
 }
