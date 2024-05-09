@@ -55,8 +55,15 @@ public class HelloController implements Initializable {
             if (!privateChat) {
                 client.sendMessage(messageToSend);
 
+                chatHistories.get("group").add(messageToSend);
+
             } else {
                 client.sendMessage("@" + receiver + " " + messageToSend);
+
+                if (!chatHistories.containsKey(receiver)) {
+                    chatHistories.put(receiver, new ArrayList<>());
+                }
+                chatHistories.get(receiver).add(messageToSend);
             }
             typedMessage.clear();
         }
@@ -100,6 +107,12 @@ public class HelloController implements Initializable {
                 String messageWithReceiverStripped = message.substring(privateHandle.length()).trim();
                 Text text = new Text(messageWithReceiverStripped);
 
+                if (!chatHistories.containsKey(receiver)) {
+                    chatHistories.put(receiver, new ArrayList<>());
+                }
+
+                chatHistories.get(receiver).add(message);
+
                 TextFlow textFlow = new TextFlow(text);
                 textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
@@ -112,6 +125,10 @@ public class HelloController implements Initializable {
                     // handle group chat
                     HBox hbox = new HBox();
                     hbox.setAlignment(Pos.CENTER_LEFT);
+
+
+                    chatHistories.get("group").add(message);
+
 
                     Text text = new Text(message);
 
