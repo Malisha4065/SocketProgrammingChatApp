@@ -70,13 +70,28 @@ public class ClientHandler implements Runnable {
     }
 
     public void broadcastMessage(String message) {
-        if (message.startsWith("@")) {
+        message = message.trim();
+        if (message.equals("/list")) {
+            sendUserList();
+        } else if (message.startsWith("@")) {
             // Direct message format: "@username message"
-            String[] parts = message.split(" ", 2);
-            String recipientUsername = parts[0].substring(1); // Extract username
-            String directMessage = parts[1];
+            int spaceIndex = message.indexOf(' ');
+            if (spaceIndex != -1) {
+                String recipientUsername = message.substring(1, spaceIndex); // Extract username
+                String directMessage = message.substring(spaceIndex + 1);
 
-            sendDirectMessage(recipientUsername, directMessage);
+                sendDirectMessage(recipientUsername, directMessage);
+            } else {
+                // If there's no message after '@', handle it appropriately
+                // For example, send an error message to the sender.
+                try {
+                    bufferedWriter.write("SERVER: Your direct message is empty. Please provide a message.");
+                    bufferedWriter.newLine();
+                    bufferedWriter.flush();
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
+                }
+            }
         } else {
             for (ClientHandler clientHandler : clientHandlers) {
                 try {
@@ -92,9 +107,24 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private void sendUserList() {
+        StringBuilder userList = new StringBuilder();
+        userList.append("Active Users:\n");
+        for (ClientHandler clientHandler : clientHandlers) {
+            userList.append(clientHandler.clientUsername).append(", ");
+        }
+        // Send the user list to the client who requested it
+        try {
+            bufferedWriter.write(userList.toString());
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            closeEverything(socket, bufferedReader, bufferedWriter);
+        }
+    }
+
     private void sendDirectMessage(String recipientUsername, String message) {
         boolean sent = false;
-        System.out.println("tada");
         for (ClientHandler clientHandler : clientHandlers) {
             if (clientHandler.clientUsername.equals(recipientUsername)) {
                 try {
