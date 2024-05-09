@@ -19,9 +19,7 @@ import org.malisha.chatappjavafx.client.Client;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HelloController implements Initializable {
     @FXML
@@ -56,6 +54,7 @@ public class HelloController implements Initializable {
 
             if (!privateChat) {
                 client.sendMessage(messageToSend);
+
             } else {
                 client.sendMessage("@" + receiver + " " + messageToSend);
             }
@@ -79,6 +78,8 @@ public class HelloController implements Initializable {
                 mainScrollPane.setVvalue((Double) t1);
             }
         });
+
+        chatHistories.put("group", new ArrayList<>());
     }
 
     private void addMessageToBox(String message) {
@@ -108,6 +109,7 @@ public class HelloController implements Initializable {
                 mainScrollPane.setVvalue(1.0);
             } else {
                 if (!message.startsWith("(Private)") && !privateChat) {
+                    // handle group chat
                     HBox hbox = new HBox();
                     hbox.setAlignment(Pos.CENTER_LEFT);
 
@@ -148,6 +150,7 @@ public class HelloController implements Initializable {
 
     private boolean privateChat = false;
     private String receiver = "";
+    private Map<String, List<String>> chatHistories = new HashMap<>();
 
     private void switchToPrivateChat(String selectedUser) {
         // Implement your logic to switch to private chat mode with the selected user
