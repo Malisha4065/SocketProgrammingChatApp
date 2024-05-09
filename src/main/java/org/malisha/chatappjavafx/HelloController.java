@@ -121,27 +121,40 @@ public class HelloController implements Initializable {
                 //messagesBox.getChildren().add(hbox);
 
                 mainScrollPane.setVvalue(1.0);
-            } else {
-                if (!message.startsWith("(Private)") && !privateChat) {
-                    // handle group chat
-                    //HBox hbox = new HBox();
-                    //hbox.setAlignment(Pos.CENTER_LEFT);
+            } else if (!message.startsWith("(Private)") && !privateChat) {
+                // handle group chat
+                //HBox hbox = new HBox();
+                //hbox.setAlignment(Pos.CENTER_LEFT);
 
 
-                    chatHistories.get("group").add("(r)" + message);
-                    populateChat("group");
+                chatHistories.get("group").add("(r)" + message);
+                populateChat("group");
 
-                    //Text text = new Text(message);
+                //Text text = new Text(message);
 
-                    //TextFlow textFlow = new TextFlow(text);
-                    //textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                //TextFlow textFlow = new TextFlow(text);
+                //textFlow.getStyleClass().addAll("bubble", "bubble-received");
 
-                    //hbox.getChildren().add(textFlow);
-                    //messagesBox.getChildren().add(hbox);
+                //hbox.getChildren().add(textFlow);
+                //messagesBox.getChildren().add(hbox);
 
-                    mainScrollPane.setVvalue(1.0);
+                mainScrollPane.setVvalue(1.0);
+            } else if (message.startsWith("(Private)")) {
+                String messageContent = message.substring("(Private) ".length());
+
+                // Split the messageContent into username and actual message using ": "
+                String[] parts = messageContent.split(": ", 2);
+
+                if (parts.length == 2) {
+                    String username = parts[0]; // Extract the username
+                    String actualMessage = parts[1]; // Extract the actual message
+
+                    if (!chatHistories.containsKey(username)) {
+                        chatHistories.put(username, new ArrayList<>());
+                    }
+
+                    chatHistories.get(username).add("(r)" + actualMessage);
                 }
-
             }
         });
     }
