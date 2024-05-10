@@ -38,6 +38,7 @@ public class LoginController {
             stage.setMinHeight(480);
             stage.setTitle("Chat App");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         } else {
             // Show an error message if username is empty

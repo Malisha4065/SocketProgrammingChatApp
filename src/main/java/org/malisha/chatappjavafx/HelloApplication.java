@@ -16,6 +16,7 @@ public class HelloApplication extends Application {
         stage.setMinHeight(480);
         stage.setTitle("Chat App");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
