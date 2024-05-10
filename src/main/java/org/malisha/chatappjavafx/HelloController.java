@@ -73,7 +73,6 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            System.out.println(myUsername);
             client = new Client(new Socket("localhost", 1234));
             client.listenForMessage(this::addMessageToBox);
             System.out.println("Connected to the server.");
@@ -158,6 +157,8 @@ public class HelloController implements Initializable {
 
                     chatHistories.get(username).add("(r)" + actualMessage);
                 }
+            } else {
+                chatHistories.get("group").add("(r)" + message);
             }
         });
     }
