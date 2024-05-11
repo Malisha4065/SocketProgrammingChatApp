@@ -23,7 +23,7 @@
         </Label>
         <HBox alignment="CENTER">
         <TextField fx:id="usernameField" alignment="CENTER" maxWidth="300" promptText="Username"
-                   style="-fx-font-size: 20; -fx-background-radius: 20;"/>
+                   style="-fx-font-size: 20; -fx-background-radius: 20;" />
         <Button text="Go" onAction="#enterChat" prefHeight="40" prefWidth="40"
                 style="-fx-background-radius: 20;"/>
         </HBox>

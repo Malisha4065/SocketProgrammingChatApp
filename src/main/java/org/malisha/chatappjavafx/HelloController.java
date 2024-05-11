@@ -3,20 +3,30 @@ package org.malisha.chatappjavafx;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import org.malisha.chatappjavafx.client.Client;
-
+import java.awt.*;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 public class HelloController implements Initializable {
     @FXML
@@ -32,6 +42,11 @@ public class HelloController implements Initializable {
 
     private Client client;
     private String myUsername = "";
+
+    @FXML
+    public void onEnter(ActionEvent ae){
+        onHelloButtonClick();
+    }
 
     public void initData(String username) {
         welcomeText.setText("Welcome, " + username + "!");
@@ -173,8 +188,10 @@ public class HelloController implements Initializable {
 
                 hBox.setAlignment(Pos.CENTER_LEFT);
                 Text text = new Text(message);
+                text.getStyleClass().add("bubble-text");
                 TextFlow textFlow = new TextFlow(text);
                 if (message.startsWith("SERVER:") && message.indexOf("SERVER:") == 0 && key.equals("group")) {
+                    hBox.setAlignment(Pos.CENTER);
                     textFlow.getStyleClass().addAll("bubble", "bubble-server");
                 } else {
                     textFlow.getStyleClass().addAll("bubble", "bubble-received");

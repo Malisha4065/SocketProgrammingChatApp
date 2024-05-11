@@ -4,6 +4,7 @@ module org.malisha.chatappjavafx {
 
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens org.malisha.chatappjavafx to javafx.fxml;
     exports org.malisha.chatappjavafx;

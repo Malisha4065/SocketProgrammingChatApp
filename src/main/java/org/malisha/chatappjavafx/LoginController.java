@@ -25,7 +25,8 @@ public class LoginController implements Initializable {
         usernameField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 try {
-                    enterChat(new ActionEvent()); // Create a synthetic ActionEvent and pass it
+                    ActionEvent actionEvent = new ActionEvent(usernameField, usernameField);
+                    enterChat(actionEvent); // Create a synthetic ActionEvent and pass it
                 } catch (IOException e) {
                     e.printStackTrace(); // Handle IOException if necessary
                 }

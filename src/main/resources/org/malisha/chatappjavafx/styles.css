@@ -1,24 +1,30 @@
 .bubble {
     -fx-background-radius: 10;
     -fx-padding: 10;
-    -fx-border-color: #bdc3c7;
     -fx-border-width: 2;
     -fx-border-radius: 10;
 }
 
 .bubble-sent {
-    -fx-background-color: #3498db;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #4399ff;
+}
+
+Text {
+    -fx-fill: white;
+    -fx-font-size: 20;
+}
+
+.bubble-text {
+    -fx-fill: black;
 }
 
 .bubble-received {
-    -fx-background-color: #2ecc71;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #dce8ff;
+    -fx-fill: #000000;
 }
 
 .bubble-server {
-    -fx-background-color: #f8367b;
-    -fx-text-fill: #ffffff;
+    -fx-fill: #000000;
 }
 
 .bubble-private-sent {
