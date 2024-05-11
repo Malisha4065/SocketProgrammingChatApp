@@ -15,3 +15,18 @@
     -fx-background-color: #2ecc71;
     -fx-text-fill: #ffffff;
 }
+
+.bubble-server {
+    -fx-background-color: #f8367b;
+    -fx-text-fill: #ffffff;
+}
+
+.bubble-private-sent {
+    -fx-background-color: #f8e836;
+    -fx-text-fill: #ffffff;
+}
+
+.bubble-private-receive {
+    -fx-background-color: #f8367b;
+    -fx-text-fill: #ffffff;
+}

@@ -73,7 +73,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            client = new Client(new Socket("localhost", 1234));
+            client = new Client(new Socket("13.200.255.45", 1234));
             client.listenForMessage(this::addMessageToBox);
             System.out.println("Connected to the server.");
         } catch (IOException e) {
@@ -173,7 +173,11 @@ public class HelloController implements Initializable {
                 hBox.setAlignment(Pos.CENTER_LEFT);
                 Text text = new Text(message);
                 TextFlow textFlow = new TextFlow(text);
-                textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                if (message.startsWith("SERVER:") && message.indexOf("SERVER:") == 0 && key.equals("group")) {
+                    textFlow.getStyleClass().addAll("bubble", "bubble-server");
+                } else {
+                    textFlow.getStyleClass().addAll("bubble", "bubble-received");
+                }
                 hBox.getChildren().add(textFlow);
             } else {
                 message = message.substring("(s)".length()).trim();

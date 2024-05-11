@@ -26,6 +26,7 @@
     </top>
     <left>
       <VBox spacing="10">
+        <Label text="Active Users:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
         <ListView fx:id="userListView" prefHeight="200" prefWidth="150" onMouseClicked="#onUserClicked"/>
         <Button fx:id="groupChatButton" onAction="#onGroupChatButtonClick" text="Group Chat" />
       </VBox>
