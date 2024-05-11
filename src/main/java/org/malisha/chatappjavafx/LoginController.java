@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -20,6 +21,8 @@ public class LoginController implements Initializable {
     @FXML
     private TextField usernameField;
 
+    @FXML
+    private Button goButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernameField.setOnKeyPressed(event -> {
@@ -32,6 +35,9 @@ public class LoginController implements Initializable {
                 }
             }
         });
+
+        goButton.getStyleClass().add("custom-button");
+
     }
 
     @FXML

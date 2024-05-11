@@ -39,16 +39,16 @@
                 </padding>
                 <ScrollPane fx:id="mainScrollPane" minHeight="450" minWidth="600" fitToWidth="true" style="-fx-background-color: #00b5ff;">
                     <content>
-                        <VBox fx:id="messagesBox" prefHeight="200" prefWidth="250"/>
+                        <VBox fx:id="messagesBox" prefHeight="200" prefWidth="250" spacing="5"/>
                     </content>
                 </ScrollPane>
             </VBox>
-            <HBox alignment="CENTER_RIGHT">
+            <HBox alignment="CENTER_RIGHT" spacing="10">
                 <padding>
                     <Insets top="35" />
                 </padding>
-                <TextField fx:id="typedMessage" maxWidth="200" minHeight="50" promptText="Enter Message" onAction="#onEnter" style="-fx-font-size: 18px;"/>
-                <Button text="Send" onAction="#onHelloButtonClick"/>
+                <TextField fx:id="typedMessage" maxWidth="200" promptText="Enter Message" onAction="#onEnter" style="-fx-font-size: 18px;"/>
+                <Button text="Send" fx:id="sendButton" minHeight="40" style="-fx-background-radius: 15;" onAction="#onHelloButtonClick"/>
             </HBox>
         </VBox>
     </HBox>
