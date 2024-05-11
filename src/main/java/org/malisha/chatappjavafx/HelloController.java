@@ -41,6 +41,8 @@ public class HelloController implements Initializable {
     @FXML
     private Label welcomeText;
     @FXML
+    private Label activeUsersText;
+    @FXML
     private Button groupChatButton;
     @FXML
     private Button sendButton;
@@ -128,7 +130,11 @@ public class HelloController implements Initializable {
                         users = users.substring(0, users.length() - 1); // remove the trailing comma
                     }
                     List<String> userList = Arrays.asList(users.split(", "));
+                    activeUsersText.setText("Active Users:");
                     populateUserList(userList);
+                } else {
+                    populateUserList(new ArrayList<>());
+                    activeUsersText.setText("No Active Users.");
                 }
             } else if (message.startsWith("(Private) " + receiver + ": ") && privateChat) {
                 //HBox hbox = new HBox();

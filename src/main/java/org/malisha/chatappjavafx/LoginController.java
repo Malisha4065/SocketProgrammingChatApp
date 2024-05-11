@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -20,6 +21,8 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
     @FXML
     private TextField usernameField;
+    @FXML
+    private Label validityShow;
 
     @FXML
     private Button goButton;
@@ -44,7 +47,7 @@ public class LoginController implements Initializable {
     private void enterChat(ActionEvent event) throws IOException {
         String username = usernameField.getText().trim();
 
-        if (!username.isEmpty()) {
+        if (!username.isEmpty() && !username.contains(" ")) {
             // Load mainview.fxml
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 //            // Pass the username to the controller of mainview.fxml
@@ -68,6 +71,7 @@ public class LoginController implements Initializable {
             // Show an error message if username is empty
             // You can implement this part based on your UI/UX design
             System.out.println("Please enter a valid username.");
+            validityShow.setText("Please enter a valid username.");
         }
     }
 
