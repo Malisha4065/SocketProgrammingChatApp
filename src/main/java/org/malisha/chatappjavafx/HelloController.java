@@ -116,6 +116,7 @@ public class HelloController implements Initializable {
 //            }
 //        });
         sendButton.getStyleClass().add("send-button");
+        groupChatButton.getStyleClass().add("custom-button");
     }
 
     private void addMessageToBox(String message) {

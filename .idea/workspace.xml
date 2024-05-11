@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9b9755-c5af-4871-85dc-b88f7f08f69f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/CustomListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/CustomListCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/chatappjavafx/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/malisha/chatappjavafx/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,7 @@
       <workItem from="1715284154576" duration="24000" />
       <workItem from="1715323579809" duration="7260000" />
       <workItem from="1715429277957" duration="1760000" />
-      <workItem from="1715431061959" duration="28043000" />
+      <workItem from="1715431061959" duration="29588000" />
     </task>
     <servers />
   </component>
