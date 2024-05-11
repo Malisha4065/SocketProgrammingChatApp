@@ -89,6 +89,7 @@ public class HelloController implements Initializable {
 
         chatHistories.put("group", new ArrayList<>());
         groupChatButton.setVisible(false);
+        //userListView.setCellFactory(param -> new CustomListCell());
     }
 
     private void addMessageToBox(String message) {
