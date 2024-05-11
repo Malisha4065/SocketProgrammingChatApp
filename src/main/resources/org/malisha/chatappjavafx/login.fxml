@@ -6,12 +6,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.malisha.chatappjavafx.LoginController">
-    <padding>
-        <Insets top="50.0"/>
-    </padding>
-    <Label text="Welcome! Please enter your username:"/>
-    <TextField fx:id="usernameField" promptText="Username"/>
-    <Button text="Enter Chat" onAction="#enterChat"/>
+      fx:controller="org.malisha.chatappjavafx.LoginController" style="-fx-background-color: #00b5ff">
+
+    <Label text="Welcome to ChatApp!" style="-fx-font-size: 35px; -fx-text-fill: white; -fx-font-weight: bold"/>
+    <VBox alignment="CENTER">
+        <padding>
+            <Insets top="45"/>
+        </padding>
+        <Label text="Please enter your username:" style="-fx-text-fill: white; -fx-font-size: 20px">
+            <padding>
+                <Insets bottom="20"/>
+            </padding>
+        </Label>
+        <HBox alignment="CENTER">
+        <TextField fx:id="usernameField" alignment="CENTER" maxWidth="300" promptText="Username"
+                   style="-fx-font-size: 20; -fx-background-radius: 20;"/>
+        <Button text="Go" onAction="#enterChat" prefHeight="40" prefWidth="40"
+                style="-fx-background-radius: 20;"/>
+        </HBox>
+    </VBox>
 </VBox>

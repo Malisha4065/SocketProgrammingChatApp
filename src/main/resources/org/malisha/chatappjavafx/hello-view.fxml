@@ -20,12 +20,16 @@
   </padding>
   <BorderPane>
     <top>
-      <VBox alignment="CENTER">
-        <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold;">Group Chat</Label>
-      </VBox>
+
     </top>
     <left>
-      <VBox spacing="10">
+      <VBox spacing="10" style="-fx-background-color: #00b5ff;">
+        <padding>
+          <Insets top="100" left="50" right="50" />
+        </padding>
+        <VBox>
+          <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold;">Group Chat</Label>
+        </VBox>
         <Label text="Active Users:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
         <ListView fx:id="userListView" prefHeight="200" prefWidth="150" onMouseClicked="#onUserClicked"/>
         <Button fx:id="groupChatButton" onAction="#onGroupChatButtonClick" text="Group Chat" />
