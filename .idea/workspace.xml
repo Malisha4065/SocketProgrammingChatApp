@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd3c4309-221c-46e2-a949-cbf1e200c372" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/malisha/client/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/malisha/client/Client.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2fu8bFngOPmVfDpX3iNr5BwbhUN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -40,6 +42,7 @@
     &quot;Maven.SocketProgrammingChatApp [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.SocketProgrammingChatApp [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.SocketProgrammingChatApp [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SocketProgrammingChatApp [package].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -51,6 +54,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.jsOptions&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -124,11 +128,22 @@
       <option name="presentableId" value="Default" />
       <updated>1714639672985</updated>
       <workItem from="1714639674087" duration="10759000" />
-      <workItem from="1715237028766" duration="11205000" />
+      <workItem from="1715237028766" duration="35056000" />
+      <workItem from="1715284146767" duration="6000" />
+      <workItem from="1715323595470" duration="3313000" />
+      <workItem from="1715343954242" duration="774000" />
+      <workItem from="1715345644916" duration="20000" />
+      <workItem from="1715431976367" duration="13789000" />
+      <workItem from="1715483163838" duration="13000" />
+      <workItem from="1715488823419" duration="285000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
